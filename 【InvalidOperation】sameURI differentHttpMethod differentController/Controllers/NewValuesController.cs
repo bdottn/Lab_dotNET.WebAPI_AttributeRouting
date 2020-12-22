@@ -4,10 +4,18 @@ namespace InvalidOperation_sameURI_differentHttpMethod_differentController.Contr
 {
     public sealed class NewValuesController : ApiController
     {
-        [HttpGet, Route("values/{id:int}")]
+        [Route("values/{id:int}")]
+        [HttpGet]
         public string GetValue(int id)
         {
             return "value is " + id;
+        }
+
+        [Route("values/{id:int}")]
+        [HttpDelete]
+        public string DeleteValue(int id)
+        {
+            return "delete value success !";
         }
     }
 }
